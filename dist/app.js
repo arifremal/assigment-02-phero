@@ -9,3 +9,4 @@ const port = 3000;
 app.get('/', (req, res) => {
     res.send('Hello Worl!');
 });
+exports.default = app;
