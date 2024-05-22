@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const mongoose = require('mongoose');
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        yield mongoose.connect('mongodb://127.0.0.1:27017/test');
+        yield mongoose.connect();
         // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
     });
 }
