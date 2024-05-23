@@ -9,8 +9,13 @@ const getallproductFromDataBase = async () => {
   const result = await ProductModel.find();
   return result;
 };
+const getallaSingleProductFromDataBase = async (_id:string) => {
+  const result = await ProductModel.findOne({_id});
+  return result;
+};
 
 export const ProductDatas = {
   createProductForDB,
-  getallproductFromDataBase
+  getallproductFromDataBase,
+  getallaSingleProductFromDataBase
 };
