@@ -1,5 +1,3 @@
-
-
 export type Inventory = {
   quantity: number;
   inStock: boolean;
@@ -19,4 +17,5 @@ export type Product = {
   tags: string[];
   variants: Variants[];
   inventory: Inventory;
+  isDeleted?: boolean;
 };

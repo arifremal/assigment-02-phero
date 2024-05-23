@@ -9,13 +9,18 @@ const getallproductFromDataBase = async () => {
   const result = await ProductModel.find();
   return result;
 };
-const getallaSingleProductFromDataBase = async (_id:string) => {
-  const result = await ProductModel.findOne({_id});
+const getallaSingleProductFromDataBase = async (_id: string) => {
+  const result = await ProductModel.findOne({ _id });
   return result;
+};
+const updateaproductinDatabase = async (_id: string, productData: any) => {
+ return await ProductModel.findByIdAndUpdate( _id, productData ,{new:true});
+  
 };
 
 export const ProductDatas = {
   createProductForDB,
   getallproductFromDataBase,
-  getallaSingleProductFromDataBase
+  getallaSingleProductFromDataBase,
+  updateaproductinDatabase,
 };

@@ -19,6 +19,7 @@ const productSchema = new Schema<Product>({
   category: { type: String },
   variants: { type: [VariantSchema], required: true },
   inventory: { type: InventorySchema, required: true },
+  isDeleted: { type: Boolean, default: false },
 });
 
 export const ProductModel = model<Product>('Product', productSchema);
