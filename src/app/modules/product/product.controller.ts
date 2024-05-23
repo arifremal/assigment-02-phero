@@ -61,10 +61,25 @@ const updateaProduct = async (req: Request, res: Response) => {
     console.log(err);
   }
 };
-
+const deleaProduct = async (req: Request, res: Response) => {
+    try {
+      const { productId } = req.params;
+  
+      const result =
+        await ProductDatas.deleteaProductFromDataBase(productId);
+      res.status(200).json({
+        success: true,
+        message: 'Product deleted successfully!',
+        data: result,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 export const ProductContollers = {
   createProduct,
   getallProducts,
   getallasingleProduct,
   updateaProduct,
+  deleaProduct
 };
