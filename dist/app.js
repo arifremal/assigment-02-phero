@@ -12,6 +12,9 @@ app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 // application routes
 app.use('/api/products', product_route_1.ProductRoutes);
+app.get('/', (req, res) => {
+    res.send("Server is running succesfully!");
+});
 app.get('/');
 app.use('/api/orders', order_routes_1.OrderRoutes);
 exports.default = app;

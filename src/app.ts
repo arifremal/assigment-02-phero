@@ -10,6 +10,9 @@ app.use(cors());
 // application routes
 app.use('/api/products', ProductRoutes);
 
+app.get('/',(req,res)=>{
+    res.send("Server is running succesfully!")
+});
 app.get('/');
 app.use('/api/orders', OrderRoutes);
 
