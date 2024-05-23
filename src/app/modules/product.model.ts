@@ -20,3 +20,5 @@ const productSchema = new Schema<Product>({
   variants: { type: [VariantSchema], required: true },
   inventory: { type: InventorySchema, required: true },
 });
+
+const Product = model<Product>('Product',productSchema);
