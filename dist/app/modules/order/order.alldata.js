@@ -8,24 +8,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const app_1 = __importDefault(require("./app"));
-const config_1 = __importDefault(require("./app/config"));
-const mongoose_1 = __importDefault(require("mongoose"));
-function main() {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            yield mongoose_1.default.connect(config_1.default.database_url);
-            app_1.default.listen(config_1.default.port, () => {
-                console.log(` app listening on port ${config_1.default.port}`);
-            });
-        }
-        catch (err) {
-            console.log(err);
-        }
-    });
-}
-main();
+exports.orderaProduct = void 0;
+const order_model_1 = require("../order.model");
+const createaOrder = (orderProduct) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield order_model_1.OrderModel.create(orderProduct);
+    return result;
+});
+const getallorderstFromDataBase = () => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield order_model_1.OrderModel.find();
+    return result;
+});
+const getAOrdersByEmail = (email) => __awaiter(void 0, void 0, void 0, function* () {
+    return yield order_model_1.OrderModel.find({ email });
+});
+exports.orderaProduct = {
+    createaOrder,
+    getallorderstFromDataBase,
+    getAOrdersByEmail,
+};

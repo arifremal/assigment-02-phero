@@ -13,6 +13,4 @@ app.use('/api/products', ProductRoutes);
 app.get('/');
 app.use('/api/orders', OrderRoutes);
 
-
-
 export default app;

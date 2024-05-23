@@ -62,46 +62,41 @@ const updateaProduct = async (req: Request, res: Response) => {
   }
 };
 const deleaProduct = async (req: Request, res: Response) => {
-    try {
-      const { productId } = req.params;
-  
-      const result =
-        await ProductDatas.deleteaProductFromDataBase(productId);
-      res.status(200).json({
-        success: true,
-        message: 'Product deleted successfully!',
-        data: result,
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  try {
+    const { productId } = req.params;
+
+    const result = await ProductDatas.deleteaProductFromDataBase(productId);
+    res.status(200).json({
+      success: true,
+      message: 'Product deleted successfully!',
+      data: result,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 const searchAItem = async (req: Request, res: Response) => {
-    try {
-      const {searchTerm}= req.query
-      if(!searchTerm){
-        return res.status(400).json({
-            success:false,
-            message:'Search term is required'
-        })
+  try {
+    const { searchTerm } = req.query;
+    if (!searchTerm) {
+      return res.status(400).json({
+        success: false,
+        message: 'Search term is required',
+      });
     }
 
-        const result = await ProductDatas.searchASpecificProduct(searchTerm as string);
-        res.status(200).json({
-            success: true,
-            message: `Products matching search term '${searchTerm}' fetched successfully!`,
-            data: result,
-          });
-
-    } catch (err) {
-      console.log(err);
-    }
-
-
-  };
-
-
-
+    const result = await ProductDatas.searchASpecificProduct(
+      searchTerm as string,
+    );
+    res.status(200).json({
+      success: true,
+      message: `Products matching search term '${searchTerm}' fetched successfully!`,
+      data: result,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 export const ProductContollers = {
   createProduct,
@@ -109,7 +104,5 @@ export const ProductContollers = {
   getallasingleProduct,
   updateaProduct,
   deleaProduct,
-  searchAItem
-
-
+  searchAItem,
 };
