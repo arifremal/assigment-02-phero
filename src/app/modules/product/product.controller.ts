@@ -3,7 +3,7 @@ import { ProductDatas } from './product.alldata';
 
 const createProduct = async (req: Request, res: Response) => {
   try {
-    const { product: productData } = req.body;
+    const productData = req.body;
     const result = await ProductDatas.createProductForDB(productData);
     res.status(200).json({
       success: true,
@@ -14,6 +14,19 @@ const createProduct = async (req: Request, res: Response) => {
     console.log(err);
   }
 };
+// const createProduct = async (req: Request, res: Response) => {
+//   try {
+//     const { product: productData } = req.body;
+//     const result = await ProductDatas.createProductForDB(productData);
+//     res.status(200).json({
+//       success: true,
+//       message: 'Product created successfully!',
+//       data: result,
+//     });
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
 
 const getallProducts = async (req: Request, res: Response) => {
   try {

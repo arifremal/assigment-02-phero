@@ -10,7 +10,7 @@ export interface Allorder extends Document {
 const AllOrderchema: Schema = new Schema({
   email: { type: String, required: true },
   productId: { type: String, required: true },
-  price: { type: Number },
+  price: { type: Number, require: true },
   quantity: { type: Number },
 });
 

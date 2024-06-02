@@ -14,7 +14,7 @@ const InventorySchema = new Schema<Inventory>({
 const productSchema = new Schema<Product>({
   id: { type: String },
   name: { type: String, required: true },
-  email: { type: String },
+  email: { type: String, required: true },
   description: { type: String },
   category: { type: String },
   variants: { type: [VariantSchema], required: true },
